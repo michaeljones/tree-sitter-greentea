@@ -1,0 +1,8 @@
+===
+Simple import
+===
+{> import gleam
+---
+(source_file
+	(import_statement
+		(module (variable))))

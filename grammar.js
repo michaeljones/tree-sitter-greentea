@@ -1,20 +1,35 @@
 module.exports = grammar({
-  name: 'greentea',
+    name: "greentea",
 
-  rules: {
-    source_file: $ => seq(repeat(choice($.import_statement, $.with_statement)), $.body),
+    extras: ($) => [/\s/],
 
-    import_statement: $ => seq("{>", "import", $.variable, repeat(seq('/', $.variable))),
+    rules: {
+        source_file: ($) =>
+            seq(
+                optional(seq($._header, repeat(seq("\n", $._header)))),
+                optional(seq("\n", $.body))
+            ),
 
-    with_statement: $ => seq("{>", "with", $.variable, "as", $.type),
+        _header: ($) => choice($.import_statement, $.with_statement),
 
-    body: $ => repeat1(choice($.value, $.builder)),
+        import_statement: ($) => seq("{>", "import", field("module", $.module)),
 
-    value: $ => seq("{{", $.variable, "}}"),
-    builder: $ => seq("{[", $.variable, "]}"),
+        module: ($) => seq($.variable, repeat(seq("/", $.variable))),
 
-    variable: $ => /[a-z][a-zA-Z]+/,
-    type: $ => /[A-Z][a-zA-Z]+/,
-  }
+        with_statement: ($) => seq("{>", "with", $.variable, "as", $.type),
+
+        body: ($) => $.content,
+        content: ($) => repeat1(choice($.generalText, $.value, $.builder, $.if_statement)),
+
+        if_statement: ($) => seq($.if_block, $.content, $.if_end_block),
+        if_block: ($) => seq("{%", "if", $.variable, "%}"),
+        if_end_block: ($) => token(seq("{%", "endif", "%}")),
+
+        value: ($) => seq("{{", $.variable, "}}"),
+        builder: ($) => seq("{[", $.variable, "]}"),
+        generalText: ($) => /(([^{][^{])|([^{][^\[])|([^{][^%]))+/,
+
+        variable: ($) => /[a-z][a-zA-Z]+/,
+        type: ($) => /[A-Z][a-zA-Z]+/,
+    },
 });
-

@@ -1,0 +1,8 @@
+===
+Multi-segment import
+===
+{> import gleam/string
+---
+(source_file
+	(import_statement
+		(module (variable) (variable))))

@@ -1,0 +1,8 @@
+===
+With
+===
+{> with name as String
+---
+(source_file
+	(with_statement
+		(variable) (type)))
