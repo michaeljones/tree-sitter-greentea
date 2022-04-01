@@ -1,0 +1,11 @@
+===
+Import and with
+===
+{> import gleam
+{> with name as String
+---
+(source_file
+	(import_statement
+		(module (variable)))
+	(with_statement
+		(variable) (type)))
