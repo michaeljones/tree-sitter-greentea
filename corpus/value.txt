@@ -1,0 +1,10 @@
+===
+Value
+===
+{{ value }}
+---
+(source_file
+	(body
+		(content
+			(value
+				(variable)))))
