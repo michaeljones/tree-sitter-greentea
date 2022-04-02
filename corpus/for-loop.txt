@@ -1,0 +1,13 @@
+===
+For loop
+===
+{% for user in users %}Hello user{% endfor %}
+---
+(source_file
+	(body
+		(content
+			(for_loop
+				(variable)
+				(variable)
+				(content
+					(text))))))

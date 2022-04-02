@@ -18,11 +18,16 @@ module.exports = grammar({
         with_statement: ($) => seq($._openLine, "with", $.variable, "as", $.type),
 
         body: ($) => $.content,
-        content: ($) => prec.right(1, repeat1(choice($.value, $.builder, $.if_statement, $.text))),
+        content: ($) =>
+            prec.right(1, repeat1(choice($.value, $.builder, $.if_statement, $.for_loop, $.text))),
 
         if_statement: ($) => seq($._if_block, $.content, $._if_end_block),
         _if_block: ($) => seq($._openBlock, "if", $.variable, "%}"),
         _if_end_block: ($) => seq($._openBlock, "endif", "%}"),
+
+        for_loop: ($) => seq($._for_block, $.content, $._for_end_block),
+        _for_block: ($) => seq($._openBlock, "for", $.variable, "in", $.variable, "%}"),
+        _for_end_block: ($) => seq($._openBlock, "endfor", "%}"),
 
         value: ($) => seq($._openValue, $.variable, "}}"),
         builder: ($) => seq($._openBuilder, $.variable, "]}"),

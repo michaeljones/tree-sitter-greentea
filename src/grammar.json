@@ -187,6 +187,10 @@
             },
             {
               "type": "SYMBOL",
+              "name": "for_loop"
+            },
+            {
+              "type": "SYMBOL",
               "name": "text"
             }
           ]
@@ -241,6 +245,69 @@
         {
           "type": "STRING",
           "value": "endif"
+        },
+        {
+          "type": "STRING",
+          "value": "%}"
+        }
+      ]
+    },
+    "for_loop": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_for_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "content"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_for_end_block"
+        }
+      ]
+    },
+    "_for_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_openBlock"
+        },
+        {
+          "type": "STRING",
+          "value": "for"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "STRING",
+          "value": "in"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "variable"
+        },
+        {
+          "type": "STRING",
+          "value": "%}"
+        }
+      ]
+    },
+    "_for_end_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_openBlock"
+        },
+        {
+          "type": "STRING",
+          "value": "endfor"
         },
         {
           "type": "STRING",

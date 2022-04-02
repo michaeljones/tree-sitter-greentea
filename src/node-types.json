@@ -42,6 +42,10 @@
           "named": true
         },
         {
+          "type": "for_loop",
+          "named": true
+        },
+        {
           "type": "if_statement",
           "named": true
         },
@@ -51,6 +55,25 @@
         },
         {
           "type": "value",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "for_loop",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "content",
+          "named": true
+        },
+        {
+          "type": "variable",
           "named": true
         }
       ]
@@ -184,7 +207,15 @@
     "named": false
   },
   {
+    "type": "endfor",
+    "named": false
+  },
+  {
     "type": "endif",
+    "named": false
+  },
+  {
+    "type": "for",
     "named": false
   },
   {
@@ -193,6 +224,10 @@
   },
   {
     "type": "import",
+    "named": false
+  },
+  {
+    "type": "in",
     "named": false
   },
   {
