@@ -42,11 +42,11 @@
           "named": true
         },
         {
-          "type": "generalText",
+          "type": "if_statement",
           "named": true
         },
         {
-          "type": "if_statement",
+          "type": "text",
           "named": true
         },
         {
@@ -188,16 +188,16 @@
     "named": false
   },
   {
-    "type": "generalText",
-    "named": true
-  },
-  {
     "type": "if",
     "named": false
   },
   {
     "type": "import",
     "named": false
+  },
+  {
+    "type": "text",
+    "named": true
   },
   {
     "type": "type",
@@ -209,22 +209,6 @@
   },
   {
     "type": "with",
-    "named": false
-  },
-  {
-    "type": "{%",
-    "named": false
-  },
-  {
-    "type": "{>",
-    "named": false
-  },
-  {
-    "type": "{[",
-    "named": false
-  },
-  {
-    "type": "{{",
     "named": false
   },
   {

@@ -8,3 +8,15 @@ Value
 		(content
 			(value
 				(variable)))))
+===
+Value in text
+===
+Hello {{ name }}, good to meet you
+---
+(source_file
+	(body
+		(content
+			(text)
+			(value
+				(variable))
+			(text))))

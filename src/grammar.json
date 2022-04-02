@@ -94,8 +94,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{>"
+          "type": "SYMBOL",
+          "name": "_openLine"
         },
         {
           "type": "STRING",
@@ -140,8 +140,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{>"
+          "type": "SYMBOL",
+          "name": "_openLine"
         },
         {
           "type": "STRING",
@@ -187,7 +187,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "generalText"
+              "name": "text"
             }
           ]
         }
@@ -214,8 +214,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{%"
+          "type": "SYMBOL",
+          "name": "_openBlock"
         },
         {
           "type": "STRING",
@@ -235,8 +235,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{%"
+          "type": "SYMBOL",
+          "name": "_openBlock"
         },
         {
           "type": "STRING",
@@ -252,8 +252,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{{"
+          "type": "SYMBOL",
+          "name": "_openValue"
         },
         {
           "type": "SYMBOL",
@@ -269,8 +269,8 @@
       "type": "SEQ",
       "members": [
         {
-          "type": "STRING",
-          "value": "{["
+          "type": "SYMBOL",
+          "name": "_openBuilder"
         },
         {
           "type": "SYMBOL",
@@ -281,10 +281,6 @@
           "value": "]}"
         }
       ]
-    },
-    "generalText": {
-      "type": "PATTERN",
-      "value": "."
     },
     "variable": {
       "type": "PATTERN",
@@ -303,7 +299,28 @@
   ],
   "conflicts": [],
   "precedences": [],
-  "externals": [],
+  "externals": [
+    {
+      "type": "SYMBOL",
+      "name": "_openValue"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_openBuilder"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_openBlock"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "_openLine"
+    },
+    {
+      "type": "SYMBOL",
+      "name": "text"
+    }
+  ],
   "inline": [],
   "supertypes": []
 }

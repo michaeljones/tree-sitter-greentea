@@ -1,0 +1,19 @@
+===
+Text
+===
+This is some text
+---
+(source_file
+	(body
+		(content
+			(text))))
+
+===
+Text with curly braces
+===
+This is some text with { curly braces }.
+---
+(source_file
+	(body
+		(content
+			(text))))

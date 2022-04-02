@@ -8,3 +8,15 @@ Builder
 		(content
 			(builder
 				(variable)))))
+===
+Builder in text
+===
+Hello {[ string_builder ]}, good to meet you
+---
+(source_file
+	(body
+		(content
+			(text)
+			(builder
+				(variable))
+			(text))))

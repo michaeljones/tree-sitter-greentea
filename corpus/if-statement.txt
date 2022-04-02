@@ -1,5 +1,5 @@
 ===
-If statement
+If statements
 ===
 {% if is_user %}Hello user{% endif %}
 ---
@@ -9,4 +9,19 @@ If statement
 			(if_statement
 				(variable)
 				(content
-					(generalText))))))
+					(text))))))
+===
+Nested if statements
+===
+{% if is_user %}{% if is_admin %}Hello admin{% endif %}{% endif %}
+---
+(source_file
+	(body
+		(content
+			(if_statement
+				(variable)
+				(content
+					(if_statement
+						(variable)
+						(content
+							(text))))))))
