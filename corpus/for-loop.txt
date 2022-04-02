@@ -1,27 +1,50 @@
-===
+================================================================================
 For loop
-===
+================================================================================
 {% for user in users %}Hello user{% endfor %}
----
+--------------------------------------------------------------------------------
+
 (source_file
-	(body
-		(content
-			(for_loop
-				(variable)
-				(variable)
-				(content
-					(text))))))
-===
+  (body
+    (content
+      (for_loop
+        (variable)
+        (variable)
+        (content
+          (text))))))
+
+================================================================================
 For-as loop
-===
+================================================================================
 {% for user as User in users %}Hello user{% endfor %}
----
+--------------------------------------------------------------------------------
+
 (source_file
-	(body
-		(content
-			(for_loop
-				(variable)
-				(type)
-				(variable)
-				(content
-					(text))))))
+  (body
+    (content
+      (for_loop
+        (variable)
+        (type)
+        (variable)
+        (content
+          (text))))))
+
+================================================================================
+For-loop in if-statement
+================================================================================
+Hello to {% if users %}{% for user as User in users %}Hello user{% endfor %}{% endif %}
+--------------------------------------------------------------------------------
+
+(source_file
+  (body
+    (content
+      (text)
+      (if_statement
+        (variable)
+        (content
+          (for_loop
+            (variable)
+            (type)
+            (variable)
+            (content
+              (text))))))))

@@ -1,27 +1,46 @@
-===
-If statements
-===
+================================================================================
+If statement
+================================================================================
 {% if is_user %}Hello user{% endif %}
----
+--------------------------------------------------------------------------------
+
 (source_file
-	(body
-		(content
-			(if_statement
-				(variable)
-				(content
-					(text))))))
-===
+  (body
+    (content
+      (if_statement
+        (variable)
+        (content
+          (text))))))
+
+================================================================================
+If statement in text
+================================================================================
+Hello all{% if is_user %} and hello user{% endif %}. Welcome.
+--------------------------------------------------------------------------------
+
+(source_file
+  (body
+    (content
+      (text)
+      (if_statement
+        (variable)
+        (content
+          (text)))
+      (text))))
+
+================================================================================
 Nested if statements
-===
+================================================================================
 {% if is_user %}{% if is_admin %}Hello admin{% endif %}{% endif %}
----
+--------------------------------------------------------------------------------
+
 (source_file
-	(body
-		(content
-			(if_statement
-				(variable)
-				(content
-					(if_statement
-						(variable)
-						(content
-							(text))))))))
+  (body
+    (content
+      (if_statement
+        (variable)
+        (content
+          (if_statement
+            (variable)
+            (content
+              (text))))))))
