@@ -21,8 +21,15 @@ module.exports = grammar({
         content: ($) =>
             prec.right(1, repeat1(choice($.value, $.builder, $.if_statement, $.for_loop, $.text))),
 
-        if_statement: ($) => seq($._if_block, $.content, $._if_end_block),
+        if_statement: ($) =>
+            seq(
+                $._if_block,
+                optional($.content),
+                optional(seq($._else_block, optional($.content))),
+                $._if_end_block
+            ),
         _if_block: ($) => seq($._openBlock, "if", $.variable, "%}"),
+        _else_block: ($) => seq($._openBlock, "else", "%}"),
         _if_end_block: ($) => seq($._openBlock, "endif", "%}"),
 
         for_loop: ($) => seq($._for_block, $.content, $._for_end_block),
