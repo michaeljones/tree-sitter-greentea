@@ -32,7 +32,7 @@ module.exports = grammar({
         _else_block: ($) => seq($._openBlock, "else", "%}"),
         _if_end_block: ($) => seq($._openBlock, "endif", "%}"),
 
-        for_loop: ($) => seq($._for_block, $.content, $._for_end_block),
+        for_loop: ($) => seq($._for_block, optional($.content), $._for_end_block),
         _for_block: ($) =>
             seq(
                 $._openBlock,

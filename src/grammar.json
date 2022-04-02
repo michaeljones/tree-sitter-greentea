@@ -314,8 +314,16 @@
           "name": "_for_block"
         },
         {
-          "type": "SYMBOL",
-          "name": "content"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "content"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
