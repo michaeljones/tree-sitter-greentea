@@ -73,6 +73,10 @@
           "named": true
         },
         {
+          "type": "type",
+          "named": true
+        },
+        {
           "type": "variable",
           "named": true
         }

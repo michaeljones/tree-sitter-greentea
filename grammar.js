@@ -26,7 +26,16 @@ module.exports = grammar({
         _if_end_block: ($) => seq($._openBlock, "endif", "%}"),
 
         for_loop: ($) => seq($._for_block, $.content, $._for_end_block),
-        _for_block: ($) => seq($._openBlock, "for", $.variable, "in", $.variable, "%}"),
+        _for_block: ($) =>
+            seq(
+                $._openBlock,
+                "for",
+                $.variable,
+                optional(seq("as", $.type)),
+                "in",
+                $.variable,
+                "%}"
+            ),
         _for_end_block: ($) => seq($._openBlock, "endfor", "%}"),
 
         value: ($) => seq($._openValue, $.variable, "}}"),

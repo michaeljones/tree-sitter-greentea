@@ -11,3 +11,17 @@ For loop
 				(variable)
 				(content
 					(text))))))
+===
+For-as loop
+===
+{% for user as User in users %}Hello user{% endfor %}
+---
+(source_file
+	(body
+		(content
+			(for_loop
+				(variable)
+				(type)
+				(variable)
+				(content
+					(text))))))
