@@ -1,5 +1,5 @@
 {
-    "name": "tree-sitter-green-tea",
+    "name": "tree-sitter-matcha",
     "version": "1.0.0",
     "description": "",
     "main": "bindings/node",

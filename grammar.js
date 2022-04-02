@@ -1,5 +1,5 @@
 module.exports = grammar({
-    name: "greentea",
+    name: "matcha",
 
     extras: ($) => [/\s/],
 

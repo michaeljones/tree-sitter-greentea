@@ -1,7 +1,7 @@
 {
   "targets": [
     {
-      "target_name": "tree_sitter_greentea_binding",
+      "target_name": "tree_sitter_matcha_binding",
       "include_dirs": [
         "<!(node -e \"require('nan')\")",
         "src"
