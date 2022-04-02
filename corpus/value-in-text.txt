@@ -1,0 +1,12 @@
+===
+Value in text
+===
+Hello {{ name }}, good to meet you
+---
+(source_file
+	(body
+		(content
+			(generalText)
+			(value
+				(variable))
+			(generalText))))

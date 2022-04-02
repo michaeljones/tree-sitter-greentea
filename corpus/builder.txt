@@ -1,0 +1,10 @@
+===
+Builder
+===
+{[ string_builder ]}
+---
+(source_file
+	(body
+		(content
+			(builder
+				(variable)))))

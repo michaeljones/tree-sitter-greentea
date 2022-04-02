@@ -16,17 +16,18 @@ module.exports = grammar({
         with_statement: ($) => seq("{>", "with", $.variable, "as", $.type),
 
         body: ($) => $.content,
-        content: ($) => repeat1(choice($.generalText, $.value, $.builder, $.if_statement)),
+        content: ($) =>
+            prec.right(1, repeat1(choice($.generalText, $.value, $.builder, $.if_statement))),
 
-        if_statement: ($) => seq($.if_block, $.content, $.if_end_block),
-        if_block: ($) => seq("{%", "if", $.variable, "%}"),
-        if_end_block: ($) => token(seq("{%", "endif", "%}")),
+        if_statement: ($) => seq($._if_block, $.content, $._if_end_block),
+        _if_block: ($) => seq("{%", "if", $.variable, "%}"),
+        _if_end_block: ($) => seq("{%", "endif", "%}"),
 
         value: ($) => seq("{{", $.variable, "}}"),
         builder: ($) => seq("{[", $.variable, "]}"),
         generalText: ($) => /(([^{][^{])|([^{][^\[])|([^{][^%])|([^{][^>]))+/,
 
-        variable: ($) => /[a-z][a-zA-Z]+/,
-        type: ($) => /[A-Z][a-zA-Z]+/,
+        variable: ($) => /[a-z][a-zA-Z_]+/,
+        type: ($) => /[A-Z][a-zA-Z_]+/,
     },
 });

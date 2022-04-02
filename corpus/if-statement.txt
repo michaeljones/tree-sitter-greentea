@@ -1,0 +1,12 @@
+===
+If statement
+===
+{% if is_user %}Hello user{% endif %}
+---
+(source_file
+	(body
+		(content
+			(if_statement
+				(variable)
+				(content
+					(generalText))))))
